@@ -3,7 +3,7 @@
 %define name	vdr-plugin-%plugin
 %define version	0.0.6
 %define beta	beta4
-%define rel	1	
+%define rel	1
 
 Summary:	VDR plugin: a menu for noEPG patch
 Name:		%name
