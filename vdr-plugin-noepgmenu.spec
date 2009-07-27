@@ -1,8 +1,9 @@
 
 %define plugin	noepgmenu
 %define name	vdr-plugin-%plugin
-%define version	0.0.5
-%define rel	3
+%define version	0.0.6
+%define beta	beta4
+%define rel	1	
 
 Summary:	VDR plugin: a menu for noEPG patch
 Name:		%name
@@ -11,7 +12,11 @@ Release:	%mkrel %rel
 Group:		Video
 License:	GPL
 URL:		http://winni.vdr-developer.org/noepgmenu/
-Source:		http://winni.vdr-developer.org/noepgmenu/download/vdr-%plugin-%version.tgz
+%if %beta
+Source:		http://winni.vdr-developer.org/noepgmenu/downloads/beta/vdr-%plugin-%version.%beta.tgz
+%else
+Source:		http://winni.vdr-developer.org/noepgmenu/downloads/vdr-%plugin-%version.tgz
+%endif
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
@@ -20,7 +25,11 @@ Requires:	vdr-abi = %vdr_abi
 A simple OSD to manage the channels for the noEPG patch.
 
 %prep
+%if %beta
+%setup -q -n %plugin-%version.%beta
+%else
 %setup -q -n %plugin-%version
+%endif
 %vdr_plugin_prep
 
 %build
