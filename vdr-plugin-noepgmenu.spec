@@ -3,7 +3,7 @@
 %define name	vdr-plugin-%plugin
 %define version	0.0.6
 %define beta	beta4
-%define rel	1
+%define rel	2
 
 Summary:	VDR plugin: a menu for noEPG patch
 Name:		%name
@@ -17,7 +17,6 @@ Source:		http://winni.vdr-developer.org/noepgmenu/downloads/beta/vdr-%plugin-%ve
 %else
 Source:		http://winni.vdr-developer.org/noepgmenu/downloads/vdr-%plugin-%version.tgz
 %endif
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 
@@ -36,17 +35,7 @@ A simple OSD to manage the channels for the noEPG patch.
 %vdr_plugin_build
 
 %install
-rm -rf %{buildroot}
 %vdr_plugin_install
-
-%clean
-rm -rf %{buildroot}
-
-%post
-%vdr_plugin_post %plugin
-
-%postun
-%vdr_plugin_postun %plugin
 
 %files -f %plugin.vdr
 %defattr(-,root,root)
