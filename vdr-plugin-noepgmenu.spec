@@ -7,7 +7,7 @@ Version:	0.0.6
 %if %beta
 Release:	3.%beta.1
 %else
-Release:	3
+Release:	4
 %endif
 Group:		Video
 License:	GPL
