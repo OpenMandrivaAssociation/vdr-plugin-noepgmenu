@@ -11,7 +11,7 @@ Release:	4
 %endif
 Group:		Video
 License:	GPL
-URL:		http://winni.vdr-developer.org/noepgmenu/
+URL:		https://winni.vdr-developer.org/noepgmenu/
 %if %beta
 Source:		http://winni.vdr-developer.org/noepgmenu/downloads/beta/vdr-%plugin-%{version}.%beta.tgz
 %else
